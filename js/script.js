@@ -8,10 +8,15 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 //Math.floor(Math.random() * 99);
 const numbertoguess = [];
 const numerorandom = document.getElementById('numbers-list').innerHTML
-function random(numerorandom){
-    for(let i = 0; i<6; i++){
-        numerorandom = Math.floor(Math.random() * 99);
+
+setTimeout (random, 5000000);
+function random(){
+    numbertoguess.length = 0;
+    for(let i = 0; i<5; i++){
+        let numero = Math.floor(Math.random() * 99); // Numero tra 0 e 98
+        numbertoguess.push(numero);
+        
     }
-    console.log(numerorandom);
+    document.getElementById('numbers-list').innerHTML = numbertoguess.join(", ");
 }
-random(numerorandom);
+random();
