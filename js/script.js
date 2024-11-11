@@ -72,5 +72,19 @@ bottone.addEventListener('click' , function(event){
 
     console.log(numbertoguess);
 
-})
+    //valoriInseriti = ['12', '2', '45', '6', '9']
+                      // 0     1    2     3    4
 
+    let numeriIndovinati=[];
+
+    for(let i=0; i< valoriInseriti.length; i++){
+        let valore = parseInt(valoriInseriti[i])
+
+        if(numbertoguess.includes(valore)){
+            numeriIndovinati.push(valore);
+        }
+        
+    }   
+    //console.log("Numeri indovinati: " + numeriIndovinati);
+})
+let message= document.getElementById('message');
