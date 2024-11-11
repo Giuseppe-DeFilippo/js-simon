@@ -7,9 +7,28 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 //Math.floor(Math.random() * 99);
 const numbertoguess = [];
-const numerorandom = document.getElementById('numbers-list').innerHTML
+const numerorandom = document.getElementById('numbers-list').innerHTML;
+const count = document.getElementById('countdown');
+let seconds = 6;
+let interval;
 
-setTimeout (random, 5000000);
+function countdown(){
+    seconds= 6;
+    count.innerText = seconds;
+    
+    Interval = setInterval(function() {
+        seconds--;
+        count.innerText = seconds; // Aggiorna il display
+
+        // Quando il tempo arriva a zero, ferma il timer
+        if (seconds <= 0) {
+            clearInterval(Interval);
+            count.innerText = "Tempo scaduto!";
+        }
+    }, 1000);
+}
+countdown();
+
 function random(){
     numbertoguess.length = 0;
     for(let i = 0; i<5; i++){
@@ -20,3 +39,4 @@ function random(){
     document.getElementById('numbers-list').innerHTML = numbertoguess.join(", ");
 }
 random();
+ 
