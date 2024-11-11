@@ -9,7 +9,6 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 
 //Math.floor(Math.random() * 99);
-const numbertoguess = [];
 const numbersList = document.getElementById('numbers-list');
 const countDown = document.getElementById('countdown');
 const answersForm = document.getElementById('answers-form');
@@ -42,21 +41,36 @@ const answersForm = document.getElementById('answers-form');
 //countdown();
 
 function random(){
-    numbertoguess.length = 0;
+    const randomNumbers = [];
+    
     for(let i = 0; i<5; i++){
-        let numero = Math.floor(Math.random() * 99); // Numero tra 0 e 98
-        numbertoguess.push(numero);
+        let numero = Math.floor(Math.random() * 101); // Numero tra 0 e 98
+        randomNumbers.push(numero);
         
     }
-    numbersList.innerHTML = numbertoguess.join(", ");
+    return randomNumbers;
 }
-random();
+const numbertoguess = random();
+
+for (let i = 0; i < numbertoguess.length; i++) {
+    numbersList.innerHTML += '<li>' + numbertoguess[i] + '</li>';
+}
  
 // bottone
 
 const bottone = document.querySelector('button.btn');
 bottone.addEventListener('click' , function(event){
-    event.preventDefault()
+    event.preventDefault();
+
+    let valoriInseriti = [];
+    const valori = document.querySelectorAll('#input-group input');
+    
+    for(let i=0; i < valori.length; i++){
+        valoriInseriti.push(valori[i].value);
+    }
+    console.log(valoriInseriti);
+
+    console.log(numbertoguess);
 
 })
 
