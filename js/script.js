@@ -83,8 +83,9 @@ bottone.addEventListener('click' , function(event){
         if(numbertoguess.includes(valore)){
             numeriIndovinati.push(valore);
         }
-        
+        let message = document.getElementById('message');
+        message.innerText = ("i numeri indovinati sono: " + " " + numeriIndovinati) ;
     }   
     //console.log("Numeri indovinati: " + numeriIndovinati);
 })
-let message= document.getElementById('message');
+
